@@ -1,0 +1,189 @@
+@import "./variables";
+@import "./reset";
+
+@mixin pinkButton {
+  margin-left: auto;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 24px;
+  background-color: $Dark-Pink;
+  color: $Link-Water_white;
+  font-size: $Psize;
+  font-weight: 700;
+  font-family: $Sans;
+  border: none;
+}
+
+header {
+  width: 100%;
+  min-height: 200px;
+  padding: 40px 165px 82px 165px;
+  position: relative;
+  overflow-x: hidden;
+
+  @media (max-width: 992px) {
+    padding: 40px 40px 82px 40px;
+  }
+
+  @media (max-width: 700px) {
+    padding: 40px 24px 82px 24px;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      margin-left: 64px;
+
+      @media (max-width: 700px) {
+        display: none;
+      }
+
+      li {
+        a {
+          text-decoration: none;
+          color: $San-Juan_blue;
+          font-family: $Sans;
+          font-size: $Psize;
+          font-style: normal;
+          font-weight: 700;
+          line-height: normal;
+        }
+      }
+    }
+
+    .btn {
+      @include pinkButton();
+
+      &:hover {
+        background-color: $Charm-Pink;
+      }
+
+      @media (max-width: 700px) {
+        display: none;
+      }
+    }
+
+    #burger {
+      display: none;
+
+      @media (max-width: 700px) {
+        display: inline-block;
+        margin-left: auto;
+      }
+    }
+  }
+
+  section {
+    margin-top: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 992px) {
+      flex-direction: column-reverse;
+      text-align: center;
+      gap: 48px;
+      margin-top: 56px;
+    }
+
+    .left-side {
+      max-width: 546px;
+
+      @media (max-width: 992px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      h1 {
+        color: $San-Juan_blue;
+        font-family: $Serif;
+        font-size: $h1Size;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 72px; /* 100% */
+        letter-spacing: -0.554px;
+        @media (max-width: 992px) {
+          font-size: 48px;
+          line-height: 56px;
+        }
+        @media (max-width: 700px) {
+          line-height: 36px;
+          font-size: 32px;
+        }
+      }
+
+      form {
+        max-width: 445px;
+        margin: 26px 0 16px 0;
+        background-color: $Link-Water_white;
+        border-radius: 24px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 10px 10px 25px -10px rgba(54, 83, 107, 0.25);
+
+        @media (max-width: 700px) {
+          flex-direction: column;
+          background-color: $Body-Bg;
+          box-shadow: unset;
+          gap: 16px;
+          width: 100%;
+        }
+        input[type="text"] {
+          background-color: $Link-Water_white;
+          color: $Light-San-juan-Blue;
+          padding: 14px 27px;
+          border-radius: 24px;
+          font-size: $Psize;
+          font-family: $Serif;
+          border: none;
+          outline: none;
+        }
+
+        input[type="submit"] {
+          @include pinkButton();
+
+          @media (max-width: 700px) {
+            width: 100%;
+          }
+        }
+      }
+
+      p {
+        color: $Light-San-juan-Blue;
+        font-family: $Sans;
+        font-size: $Psize;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-left: 27px;
+        span {
+          font-weight: 700;
+        }
+
+        @media (max-width: 992px) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  .first-circle {
+    position: absolute;
+    top: -172px;
+    right: -140px;
+    z-index: -1;
+
+    @media (max-width: 992px) {
+      left: 50%;
+      transform: translate(-50%);
+      top: -450px;
+    }
+  }
+}
