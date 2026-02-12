@@ -3,15 +3,25 @@
 
 @mixin pinkButton {
   margin-left: auto;
-  text-decoration: none;
   padding: 14px 24px;
   border-radius: 24px;
   background-color: $Dark-Pink;
-  color: $Link-Water_white;
+  color: $Link-Water-White;
   font-size: $Psize;
   font-weight: 700;
   font-family: $Sans;
   border: none;
+
+  &:hover {
+    background-color: $Charm-Pink-Actives;
+  }
+}
+
+@mixin regularP($text-collor) {
+  color: $text-collor;
+  font-family: $Sans;
+  font-size: $Psize;
+  font-weight: 400;
 }
 
 header {
@@ -45,13 +55,10 @@ header {
 
       li {
         a {
-          text-decoration: none;
-          color: $San-Juan_blue;
+          color: $San-Juan-Blue;
           font-family: $Sans;
           font-size: $Psize;
-          font-style: normal;
           font-weight: 700;
-          line-height: normal;
         }
       }
     }
@@ -59,16 +66,12 @@ header {
     .btn {
       @include pinkButton();
 
-      &:hover {
-        background-color: $Charm-Pink;
-      }
-
       @media (max-width: 700px) {
         display: none;
       }
     }
 
-    #burger {
+    #menu {
       display: none;
 
       @media (max-width: 700px) {
@@ -85,14 +88,15 @@ header {
     justify-content: space-between;
 
     @media (max-width: 992px) {
+      margin-top: 48px;
       flex-direction: column-reverse;
       text-align: center;
       gap: 48px;
-      margin-top: 56px;
     }
 
     .left-side {
       max-width: 546px;
+      //   background-color: aqua;
 
       @media (max-width: 992px) {
         display: flex;
@@ -102,27 +106,28 @@ header {
       }
 
       h1 {
-        color: $San-Juan_blue;
+        color: $San-Juan-Blue;
         font-family: $Serif;
-        font-size: $h1Size;
-        font-style: normal;
+        font-size: $H1size;
         font-weight: 400;
-        line-height: 72px; /* 100% */
+        line-height: 72px;
         letter-spacing: -0.554px;
+
         @media (max-width: 992px) {
           font-size: 48px;
           line-height: 56px;
         }
+
         @media (max-width: 700px) {
-          line-height: 36px;
           font-size: 32px;
+          line-height: 36px;
         }
       }
 
       form {
         max-width: 445px;
-        margin: 26px 0 16px 0;
-        background-color: $Link-Water_white;
+        margin: 21px 0 16px 0;
+        background-color: $Link-Water-White;
         border-radius: 24px;
         display: flex;
         justify-content: space-between;
@@ -135,15 +140,20 @@ header {
           gap: 16px;
           width: 100%;
         }
+
         input[type="text"] {
-          background-color: $Link-Water_white;
-          color: $Light-San-juan-Blue;
+          background-color: $Link-Water-White;
+          color: $Light-San-Juan-Blue;
           padding: 14px 27px;
           border-radius: 24px;
           font-size: $Psize;
-          font-family: $Serif;
+          font-family: $Sans;
           border: none;
           outline: none;
+
+          @media (max-width: 700px) {
+            width: 100%;
+          }
         }
 
         input[type="submit"] {
@@ -156,12 +166,7 @@ header {
       }
 
       p {
-        color: $Light-San-juan-Blue;
-        font-family: $Sans;
-        font-size: $Psize;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
+        @include regularP($Light-San-Juan-Blue);
         margin-left: 27px;
         span {
           font-weight: 700;
@@ -174,7 +179,7 @@ header {
     }
   }
 
-  .first-circle {
+  .firs-circle {
     position: absolute;
     top: -172px;
     right: -140px;
@@ -184,6 +189,119 @@ header {
       left: 50%;
       transform: translate(-50%);
       top: -450px;
+    }
+  }
+}
+main {
+  .partners {
+    width: 100%;
+    min-height: 100px;
+    background-color: $Mirage-Blue;
+    padding: 93px 165px 107px 165px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 992px) {
+      flex-direction: column-reverse;
+      padding-left: 0;
+      padding-right: 0;
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    #second-circle {
+      position: absolute;
+      top: -359px;
+      left: -235px;
+
+      @media (max-width: 992px) {
+      }
+      top: -548px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .partners-left-side {
+      max-width: 445px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      @media (max-width: 992px) {
+        align-items: center;
+        margin-top: 72px;
+      }
+
+      h2 {
+        color: $Link-Water-White;
+        font-family: $Serif;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 56px;
+        letter-spacing: -0.369px;
+
+        @media (max-width: 992px) {
+          font-size: 32px;
+        }
+      }
+
+      p {
+        @include regularP($Link-Water-White);
+        opacity: 0.5;
+        line-height: 28px;
+      }
+
+      a {
+        color: #fff;
+        padding: 16px 32px;
+        border: 1px solid #fff;
+        border-radius: 24px;
+        width: fit-content;
+        font-size: $Psize;
+        font-family: $Sans;
+        text-decoration: none;
+      }
+    }
+
+    .partners-logos {
+      display: flex;
+      gap: 40px;
+      flex-direction: column;
+      width: 536px;
+
+      @media (max-width: 700px) {
+        flex-direction: row;
+        width: 327px;
+        justify-content: space-between;
+      }
+
+      .top-logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 700px) {
+          flex-direction: column;
+        }
+      }
+
+      .bot-logos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width: 700px) {
+          flex-direction: column;
+          gap: 70px;
+        }
+      }
     }
   }
 }
